@@ -1,0 +1,106 @@
+
+# AI Hair Transplant App – Testing & Linting Setup
+
+This repository includes backend services and frontend components to support AI-powered predictions and user interaction. Below are the guidelines for code quality and testing.
+
+---
+
+## 📦 Python Backend Testing
+
+### 🔍 Unit Testing with `pytest`
+
+We use [pytest](https://docs.pytest.org/) for all Python backend test cases.
+
+**To install:**
+```bash
+pip install pytest
+```
+
+**To run tests:**
+```bash
+pytest tests/
+```
+
+Place all your test files inside the `tests/` directory and prefix them with `test_`.
+
+**Sample Test File:**
+```python
+# tests/test_api.py
+def test_example():
+    assert 1 + 1 == 2
+```
+
+---
+
+## 🧼 Code Style – isort + Black
+
+We use `isort` and `black` to format and order imports consistently.
+
+**To install:**
+```bash
+pip install isort black
+```
+
+**To format files:**
+```bash
+isort .
+black .
+```
+
+These tools are configured to run on pre-commit hooks (optional).
+
+---
+
+## 🗂 Recommended Directory Structure
+
+```
+repo/
+├── backend/
+│   ├── app.py
+│   ├── routes/
+│   ├── models/
+│   └── utils/
+├── tests/
+│   ├── test_api.py
+│   └── test_models.py
+├── .isort.cfg
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🛠 Setup Pre-commit (optional)
+
+To auto-run tests or formatters before committing:
+
+**Install:**
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+**.pre-commit-config.yaml**
+```yaml
+repos:
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.12.0
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+```
+
+---
+
+## ✅ Best Practices
+
+- Test each route and data model.
+- Use mock objects for AI responses.
+- Run tests locally and via CI (GitHub Actions).
+
+---
+
